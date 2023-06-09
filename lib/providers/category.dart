@@ -26,7 +26,7 @@ class Category with ChangeNotifier {
           loadedCategories.add(
             ICategory(
               id: categoryId,
-              name: categoryData['name'],
+              name: categoryData['name'].toString(),
             ),
           );
         });

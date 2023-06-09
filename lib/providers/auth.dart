@@ -7,6 +7,7 @@ import 'package:reservation_railway/constant/constant.dart';
 import 'package:reservation_railway/model/http_exception.dart';
 import 'package:reservation_railway/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Auth with ChangeNotifier {
   String? _token;
@@ -30,30 +31,26 @@ class Auth with ChangeNotifier {
     return null;
   }
 
-  Future<void> _authenticate(String email, String password, String url) async {
+  Future<void> _authenticate(
+      String email, String password, bool register) async {
     try {
-      final response = await http.post(
-        Uri.parse(url),
-        body: json.encode({
-          'email': email,
-          'password': password,
-          'returnSecureToken': true,
-        }),
-      );
-      final responseData = json.decode(response.body);
-      if (responseData['error'] != null) {
-        throw HttpException(responseData['error']['message']);
+      final auth = FirebaseAuth.instance;
+      if (register) {
+        await auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
+      } else {
+        await auth.signInWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
       }
-      _token = responseData['idToken'];
-      _userId = responseData['localId'];
+      final user = auth.currentUser!;
+      _token = await user.getIdToken();
+      _userId = user.uid;
       _email = email;
-      _expiryDate = DateTime.now().add(
-        Duration(
-          seconds: int.parse(
-            responseData['expiresIn'],
-          ),
-        ),
-      );
+      _expiryDate = DateTime.now().add(const Duration(days: 7));
       _autoLogout();
       notifyListeners();
       final prefs = await SharedPreferences.getInstance();
@@ -72,11 +69,11 @@ class Auth with ChangeNotifier {
   }
 
   Future<void> signUp(IUser user) async {
-    return _authenticate(user.email, user.password, Constant.signUp);
+    return _authenticate(user.email, user.password, true);
   }
 
   Future<void> login(String email, String password) async {
-    return _authenticate(email, password, Constant.signInWithPassword);
+    return _authenticate(email, password, false);
   }
 
   Future<void> logout() async {
@@ -125,6 +122,6 @@ class Auth with ChangeNotifier {
   }
 
   Future<void> resetPassword(String email) async {
-    return _authenticate(email, 'password', Constant.signInWithPassword);
+    return _authenticate(email, 'password', false);
   }
 }

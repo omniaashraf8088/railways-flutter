@@ -1,5 +1,5 @@
 class Constant {
-  static String dbUrl = 'reservation-railway-default-rtdb.firebaseio.com';
+  static String dbUrl = 'railways-flutter-default-rtdb.europe-west1.firebasedatabase.app';
   static String apiKey = 'AIzaSyCUHJ52W-JEUPR2x0rfmFmgDGsWrUPUy8I';
   static String firebaseRestApi =
       'https://identitytoolkit.googleapis.com/v1/accounts:';

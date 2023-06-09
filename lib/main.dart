@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:reservation_railway/constant/constant.dart';
+import 'package:reservation_railway/firebase_options.dart';
 import 'package:reservation_railway/providers/auth.dart';
 import 'package:reservation_railway/providers/booking.dart';
 import 'package:reservation_railway/providers/card.dart';
@@ -21,6 +23,7 @@ import 'package:reservation_railway/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final prefs = await SharedPreferences.getInstance();
   final skipWelcome = prefs.getBool('skipWelcome') ?? false;
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

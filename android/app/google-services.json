@@ -1,35 +1,42 @@
 {
   "project_info": {
-    "project_number": "120059744737",
-    "firebase_url": "https://reservation-railway-default-rtdb.firebaseio.com",
-    "project_id": "reservation-railway",
-    "storage_bucket": "reservation-railway.appspot.com"
+    "project_number": "660334822645",
+    "firebase_url": "https://railways-flutter-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "railways-flutter",
+    "storage_bucket": "railways-flutter.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:120059744737:android:1d2f7f52eb15d44c1bc2a0",
+        "mobilesdk_app_id": "1:660334822645:android:1754d6610a4d2785c6f1bc",
         "android_client_info": {
           "package_name": "com.example.reservation_railway"
         }
       },
       "oauth_client": [
         {
-          "client_id": "120059744737-475osuiubku914me6lfhvcvibds2aar8.apps.googleusercontent.com",
+          "client_id": "660334822645-bipj6lntgfqe86rrtr550gmr3f4pvv7v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAEM90NZYsuy1woVcPa2n7pW1sxVpq25Vw"
+          "current_key": "AIzaSyDPYPZMpURLghNJcWrVQ4MfzDrEjU54jkM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "120059744737-475osuiubku914me6lfhvcvibds2aar8.apps.googleusercontent.com",
+              "client_id": "660334822645-bipj6lntgfqe86rrtr550gmr3f4pvv7v.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "660334822645-0e3gd22hn69v2jmqsnivavpb944eb49h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.reservationRailway"
+              }
             }
           ]
         }
