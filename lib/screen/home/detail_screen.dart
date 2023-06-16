@@ -49,6 +49,13 @@ class _DetailScreenState extends State<DetailScreen> {
         color: primaryColor,
         child: CustomScrollView(
           slivers: [
+            SliverToBoxAdapter(
+                child: Image.asset(
+              "assets/images/train_book.jpg",
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.fitWidth,
+            )),
             SliverPadding(
               padding: const EdgeInsets.only(
                   right: 24, left: 24, bottom: 24, top: 8),

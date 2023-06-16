@@ -21,6 +21,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   bool _isLoggedIn = false;
   var userData;
+
   Future<dynamic> _getAuthData() async {
     final prefs = await SharedPreferences.getInstance();
     if (prefs.containsKey('userData')) {
@@ -97,11 +98,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: _isLoggedIn
               ? Column(
                   children: <Widget>[
-                    const Center(
-                      child: Icon(
-                        Icons.person,
-                        size: 260,
-                        color: Colors.white,
+                    Center(
+                      child: CircleAvatar(
+                        backgroundColor: Colors.white38.withOpacity(0.50),
+                        radius: 120,
+                        child: Icon(
+                          Icons.person,
+                          size: 110,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -109,9 +114,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Center(
                       child: Text(
-                        "Welcome back!",
+                        "Welcome ",
                         style: titleTextStyle.copyWith(
-                            fontSize: 24, color: darkBlue300),
+                            fontSize: 35, color: darkBlue300),
                       ),
                     ),
                     const SizedBox(
@@ -119,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     Text(
                       userName,
-                      style: const TextStyle(color: Colors.white, fontSize: 22),
+                      style: const TextStyle(color: Colors.white, fontSize: 28),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(

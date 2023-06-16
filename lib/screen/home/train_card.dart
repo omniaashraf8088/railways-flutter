@@ -38,7 +38,7 @@ class TrainCard extends StatelessWidget {
             print('ava: ${train.availableSeats}');
 
             /// Checking if there is available seats or not before navigate to booking page
-            if (train.availableSeats > 1) {
+            if (train.availableSeats >= 1) {
               _navigateToBook(context);
             }
           },

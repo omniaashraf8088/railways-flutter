@@ -38,14 +38,14 @@ class FirstWelcomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          Positioned(
+          const Positioned(
             left: 25,
             right: 0,
             bottom: 80,
             child: Column(
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Text(
                       'Welcome to',
                       style: TextStyle(
@@ -56,26 +56,26 @@ class FirstWelcomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 16,
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Text(
-                      'Book',
+                      'Railway Management System',
                       style: TextStyle(
-                        color: successColor,
-                        fontSize: 90,
+                        color: Colors.amberAccent,
+                        fontSize: 28,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 40,
                 ),
                 Row(
-                  children: const [
+                  children: [
                     Expanded(
                       child: Text(
                         'The best train railways in the century to \n accompany your vacation',

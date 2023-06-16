@@ -10,7 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 class DetailScreen extends StatelessWidget {
   SportField field;
 
-  DetailScreen({required this.field});
+  DetailScreen({super.key, required this.field});
 
   @override
   Widget build(BuildContext context) {
