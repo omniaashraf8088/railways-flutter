@@ -27,7 +27,6 @@ class _BookingDetailsScreenState extends State<BookingDetailsScreen> {
         color: primaryColor,
         child: CustomScrollView(
           slivers: [
-            Image.asset("assets/images/train_book.jpg"),
             SliverPadding(
               padding: const EdgeInsets.only(
                   right: 24, left: 24, bottom: 24, top: 8),
